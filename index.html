@@ -68,10 +68,7 @@
 <body>
     <div class="login-box">
         <img src="icon.png" alt="Lock Icon" class="icon">
-        <!-- <label for="username">Username (email):</label> -->
         <input type="text" id="username" placeholder="Username">
-        
-        <!-- <label for="password">Password:</label> -->
         <input type="password" id="password" placeholder="Password">
 
         <button onclick="login()">Login</button>
@@ -85,8 +82,7 @@
         function login() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-    
-            // Validate username (email format)
+
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(username)) {
                 alert('Please enter a valid email address');
@@ -113,18 +109,15 @@
             alert('Only @ is allowed as a special character in the password');
             return false;
             }    
-            // Add your authentication logic here (e.g., communicate with backend)
-            // For the purpose of this example, I'm using a simple condition for demonstration
+
             if (password === 'SmartServTest@123') {
-                // Redirect to the dashboard page
-                window.location.href = 'dashboard.html'; // Replace 'dashboard.html' with the actual dashboard page URL
+                window.location.href = 'dashboard.html';
             } else {
                 alert('Incorrect password. Please try again.');
             }
         }
     
         function forgotPassword() {
-            // Open the default email client to send an email to support@smartserv.io
             window.location.href = 'mailto:support@smartserv.io';
         }
     </script>

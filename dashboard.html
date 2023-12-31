@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+    <style>
+        body {
+    background-color: #e8eaea; /* Light grey background color */
+        }
+
+        .metric-box {
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            height: 90px; /* Adjusted height */
+            width: 260px; /* Adjusted width */
+            position: relative;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .metric-box::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px; /* Width of the green line */
+            background-color: rgb(34, 185, 132); /* Color of the green line */
+        }
+
+        .graph-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* canvas {
+            max-width: 400px;
+            margin: 20px;
+        } */
+        canvas {
+            max-width: 600px;
+            margin: 20px;
+            height: 400px; /* Set a specific height for the canvas */
+            background-color: white; /* Set the background color to white */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h6 class="text-left">Company Metrics</h6>
+
+        <div class="row">
+            <!-- Metric Boxes -->
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p style="color:rgb(34, 185, 132);">$406,411.29</p>
+                    <h6>Total Revenue</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>$620</p>
+                    <h6>Total Jobs Avg</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>655</p>
+                    <h6>Tickets Created</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>735</p>
+                    <h6>Tickets Scheduled</h6>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p style="color: red;">$110,448.8</p>
+                    <h6>Outstanding Amount</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>105</p>
+                    <h6>Memberships Sold</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>436</p>
+                    <h6>Jobs Completed</h6>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-box text-left">
+                    <p>65</p>
+                    <h6>Total Canceled</h6>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Bar Graphs -->
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="text-left">Revenue By Job Location</h6>
+                <div class="graph-container">
+                    <canvas id="jobLocationChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h6 class="text-left">Revenue By Job Type</h6>
+                <div class="graph-container">
+                    <canvas id="jobTypeChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for bar graphs
+        var locationData = {
+            labels: ['Everett', 'Seattle', 'Lynnwood', 'Bothell', 'Mukilteo', 'Edmonds'],
+            datasets: [{
+                label: 'Revenue for November 2019',
+                backgroundColor: 'rgb(34, 185, 132)', // Solid green color
+                borderColor: 'rgb(34, 185, 132)',
+                borderWidth: 1,
+                data: [100000, 90000, 49000, 48000, 46000,34000],
+            }]
+        };
+
+        var typeData = {
+            labels: ['Service Plumbing', 'Bid Work HVAC', 'Service HVAC', 'Bid WOrk Plumbing', 'HWC Replacement', 'Maintenance','Material Sale'],
+            datasets: [{
+                label: 'Revenue for November 2019',
+                backgroundColor: 'rgb(34, 185, 132)', // Solid green color
+                borderColor: 'rgb(34, 185, 132)',
+                borderWidth: 1,
+                data: [200000, 130000, 80000, 75000, 45000, 42000],
+            }]
+        };
+
+        // Render bar graphs
+        var ctxLocation = document.getElementById('jobLocationChart').getContext('2d');
+        var ctxType = document.getElementById('jobTypeChart').getContext('2d');
+
+        var locationChart = new Chart(ctxLocation, {
+            type: 'bar',
+            data: locationData,
+        });
+
+        var typeChart = new Chart(ctxType, {
+            type: 'bar',
+            data: typeData,
+        });
+    </script>
+    
+    
+
+</body>
+
+</html>

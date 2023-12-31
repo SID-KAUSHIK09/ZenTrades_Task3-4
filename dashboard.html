@@ -9,15 +9,15 @@
     <title>Dashboard</title>
     <style>
         body {
-    background-color: #e8eaea; /* Light grey background color */
+    background-color: #e8eaea; 
         }
 
         .metric-box {
             padding: 20px;
             margin: 10px;
             text-align: center;
-            height: 90px; /* Adjusted height */
-            width: 260px; /* Adjusted width */
+            height: 90px; 
+            width: 260px;
             position: relative;
             border: 1px solid #ddd;
             background-color: white;
@@ -31,8 +31,8 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 10px; /* Width of the green line */
-            background-color: rgb(34, 185, 132); /* Color of the green line */
+            width: 10px;
+            background-color: rgb(34, 185, 132);
         }
 
         .graph-container {
@@ -40,15 +40,11 @@
             justify-content: space-around;
         }
 
-        /* canvas {
-            max-width: 400px;
-            margin: 20px;
-        } */
         canvas {
             max-width: 600px;
             margin: 20px;
-            height: 400px; /* Set a specific height for the canvas */
-            background-color: white; /* Set the background color to white */
+            height: 400px;
+            background-color: white;
         }
     </style>
 </head>
@@ -118,7 +114,6 @@
             </div>
         </div>
 
-        <!-- Bar Graphs -->
         <br>
         <div class="row">
             <div class="col-md-6">
@@ -137,12 +132,11 @@
     </div>
 
     <script>
-        // Sample data for bar graphs
         var locationData = {
             labels: ['Everett', 'Seattle', 'Lynnwood', 'Bothell', 'Mukilteo', 'Edmonds'],
             datasets: [{
                 label: 'Revenue for November 2019',
-                backgroundColor: 'rgb(34, 185, 132)', // Solid green color
+                backgroundColor: 'rgb(34, 185, 132)',
                 borderColor: 'rgb(34, 185, 132)',
                 borderWidth: 1,
                 data: [100000, 90000, 49000, 48000, 46000,34000],
@@ -153,14 +147,13 @@
             labels: ['Service Plumbing', 'Bid Work HVAC', 'Service HVAC', 'Bid WOrk Plumbing', 'HWC Replacement', 'Maintenance','Material Sale'],
             datasets: [{
                 label: 'Revenue for November 2019',
-                backgroundColor: 'rgb(34, 185, 132)', // Solid green color
+                backgroundColor: 'rgb(34, 185, 132)',
                 borderColor: 'rgb(34, 185, 132)',
                 borderWidth: 1,
                 data: [200000, 130000, 80000, 75000, 45000, 42000],
             }]
         };
 
-        // Render bar graphs
         var ctxLocation = document.getElementById('jobLocationChart').getContext('2d');
         var ctxType = document.getElementById('jobTypeChart').getContext('2d');
 

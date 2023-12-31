@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #3d3b3b;
+            color: #fff;
+        }
+
+        .login-box {
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon {
+            display: block;
+            margin: 0 auto;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        #password {
+            font-family: 'Arial', sans-serif;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .forgot-password a {
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img src="icon.png" alt="Lock Icon" class="icon">
+        <!-- <label for="username">Username (email):</label> -->
+        <input type="text" id="username" placeholder="Username">
+        
+        <!-- <label for="password">Password:</label> -->
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+        <div class="forgot-password">
+            <a href="javascript:void(0);" onclick="forgotPassword()">Forgot your password?</a>
+        </div>
+        
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+    
+            // Validate username (email format)
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(username)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            var passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@]{8,}$/;
+
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long');
+                return;
+            }
+
+            if (!/[A-Z]/.test(password)) {
+                alert('Password must contain at least one uppercase letter');
+                return;
+            }
+
+            if (!/\d/.test(password)) {
+                alert('Password must contain at least one number');
+                return;
+            }
+
+            if (/[^A-Za-z\d@]/.test(password)) {
+            alert('Only @ is allowed as a special character in the password');
+            return false;
+            }    
+            // Add your authentication logic here (e.g., communicate with backend)
+            // For the purpose of this example, I'm using a simple condition for demonstration
+            if (password === 'SmartServTest@123') {
+                // Redirect to the dashboard page
+                window.location.href = 'dashboard.html'; // Replace 'dashboard.html' with the actual dashboard page URL
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+    
+        function forgotPassword() {
+            // Open the default email client to send an email to support@smartserv.io
+            window.location.href = 'mailto:support@smartserv.io';
+        }
+    </script>
+    
+</body>
+</html>

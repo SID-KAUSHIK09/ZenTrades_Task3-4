@@ -1,2 +1,2 @@
-# ZenTrades_Task4
-This is task 4 for SmartServe Technical coding assignment
+# ZenTrades_Task3and4
+This is task 3 and 4 for SmartServe Technical coding assignment
